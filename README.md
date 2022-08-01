@@ -1,4 +1,4 @@
-# FinTech
+## FinTech
 Coworking space application developers!
 
 <img src='./src/assets/img/meetingRooms.png' width="350" title="fintech">
