@@ -39,12 +39,27 @@ export default StyleSheet.create({
     meetingContainer: {
         marginLeft: normalize(20),
         marginVertical: normalize(10),
-        width: wp('90%'),
+        width: '90%',
 
     },
     meetingText: {
         fontSize: normalize(20),
         fontFamily: FontFamilyName.MontserratMedium,
+        color: 'black'
+    },
+    upcomingView: {
+        width: '40%',
+        backgroundColor: '#76A9FF',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: normalize(35),
+        borderTopRightRadius: 8,
+        borderBottomLeftRadius: 8,
+        position: 'absolute',
+        right: 0
+    },
+    upcomingText: {
+        fontSize: normalize(18),
         color: 'black'
     },
     bookMeeting: {
@@ -80,8 +95,8 @@ export default StyleSheet.create({
         color: 'black'
     },
     btn: {
-        width: wp("30%"),
-        marginLeft: normalize(5),
+        width: wp("25%"),
+        marginLeft: normalize(20),
         height: hp("7%"),
         marginRight: normalize(20)
     },
@@ -130,5 +145,50 @@ export default StyleSheet.create({
         fontFamily: FontFamilyName.MontserratMedium,
         fontSize: normalize(14),
         color: 'black'
+    },
+    viewAll: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: '90%',
+        alignSelf: 'center',
+        alignItems: 'center',
+        marginTop: normalize(15)
+    },
+    viewText: {
+        fontWeight: '700',
+        fontFamily: FontFamilyName.MontserratMedium,
+        fontSize: normalize(24),
+        color: 'black'
+    },
+    viewBtnText: {
+        fontWeight: '500',
+        fontFamily: FontFamilyName.MontserratMedium,
+        fontSize: normalize(16),
+        color: 'black'
+    },
+    dateTimeContainer: {
+        width: '60%',
+        marginTop: normalize(20),
+        marginLeft: normalize(20),
+        elevation: 2,
+        backgroundColor: 'white',
+        padding: normalize(20),
+        borderRadius: 8
+    },
+    dateTimeHeadingText: {
+        fontFamily: FontFamilyName.MontserratMedium,
+        fontSize: normalize(20),
+        color: 'black',
+        marginTop: normalize(10)
+
+    },
+    dateTime: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: normalize(20)
+
+    },
+    dateTimeText: {
+        paddingLeft: normalize(10)
     }
 })
