@@ -20,9 +20,8 @@ export default StyleSheet.create({
     },
     textContainer: {
         width: '90%',
-        alignSelf: 'center',
+        marginLeft: normalize(20),
         marginTop: normalize(20),
-        flexDirection: 'column',
     },
     textStyle: {
         fontFamily: FontFamilyName.FrutigerFamily,
@@ -31,8 +30,8 @@ export default StyleSheet.create({
         color: theme.colors.primary,
     },
     boldText: {
-        fontFamily: FontFamilyName.Frutiger_Bold_Family,
-        fontSize: normalize(26),
+        fontFamily: FontFamilyName.MontserratBold,
+        fontSize: normalize(20),
         padding: 2,
         color: theme.colors.primary,
     },
@@ -96,7 +95,7 @@ export default StyleSheet.create({
     },
     btn: {
         width: wp("25%"),
-        marginLeft: normalize(20),
+        marginLeft: normalize(10),
         height: hp("7%"),
         marginRight: normalize(20)
     },
@@ -111,7 +110,8 @@ export default StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         paddingRight: normalize(10),
-        width: wp('30%'),
+        width: normalize(150),
+        height: normalize(60),
         position: 'absolute',
         bottom: 0,
         right: 0,
@@ -119,7 +119,7 @@ export default StyleSheet.create({
     },
     qrText: {
         color: 'white',
-        fontSize: normalize(18),
+        fontSize: normalize(14),
         fontFamily: FontFamilyName.MontserratMedium
     },
     priceContainer: {
@@ -128,7 +128,8 @@ export default StyleSheet.create({
         justifyContent: 'space-between',
         marginTop: 10,
         alignItems: 'center',
-        alignSelf: 'center',
+        // alignSelf: 'center',
+        marginLeft: normalize(20),
     },
     subPriceContainer: {
         borderWidth: 1,
@@ -150,7 +151,8 @@ export default StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         width: '90%',
-        alignSelf: 'center',
+        // alignSelf: 'center',
+        marginLeft: normalize(20),
         alignItems: 'center',
         marginTop: normalize(15)
     },

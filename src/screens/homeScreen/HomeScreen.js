@@ -48,7 +48,7 @@ const HomeScreen = () => {
                             showsHorizontalScrollIndicator={false}
                             contentContainerStyle={{ paddingBottom: normalize(10), paddingRight: normalize(140) }}
                         >
-                            <View style={[styles.dateTimeContainer, { backgroundColor: theme.colors.primary }]}>
+                            <View style={[styles.dateTimeContainer, { backgroundColor: theme.colors.primary, marginLeft: 0 }]}>
                                 <View style={styles.upcomingView}>
                                     <Text style={styles.upcomingText}>Upcoming</Text>
                                 </View>
@@ -107,10 +107,9 @@ const HomeScreen = () => {
                         </TouchableOpacity>
                     </View>
                     <ScrollView
-                        style={{}}
                         horizontal
                         showsHorizontalScrollIndicator={false}
-                        contentContainerStyle={{ paddingBottom: 50, paddingRight: 140 }}>
+                        contentContainerStyle={{ paddingBottom: 50, paddingRight: normalize(160) }}>
                         <View style={styles.dateTimeContainer}>
                             <Text style={{ color: '#30B991' }}>Event</Text>
                             <Text style={styles.dateTimeHeadingText}>Start up pitch event</Text>

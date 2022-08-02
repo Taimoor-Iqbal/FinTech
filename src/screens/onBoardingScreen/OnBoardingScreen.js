@@ -45,12 +45,12 @@ const OnBoardingScreen = () => {
                             <Button
                                 style={styles.btn}
                                 labelStyle={styles.subButtonText}
-                                mode='contained'
+                                mode='outlined'
                             >{Strings.Tour}</Button>
                             <Button
                                 style={styles.btn}
                                 labelStyle={styles.subButtonText}
-                                mode='contained'
+                                mode='outlined'
                             >{Strings.ApplyMemberShip}</Button>
                         </View>
                     </Animatable.View>
