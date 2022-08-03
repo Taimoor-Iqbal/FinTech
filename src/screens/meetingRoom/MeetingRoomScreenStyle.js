@@ -62,7 +62,7 @@ export default StyleSheet.create({
         borderRadius: 8,
         marginVertical: normalize(10),
         justifyContent: 'center',
-        paddingHorizontal: normalize(10)
+        // paddingHorizontal: normalize(10)
     },
     timePickerText: {
         fontSize: normalize(15),

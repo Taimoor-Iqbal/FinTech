@@ -1,5 +1,5 @@
 import { Text, TouchableOpacity, View, Image, ScrollView } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './MeetingRoomSelectedScreenStyle'
 import Header from '../../components/Header'
 import ArrowBack from '../../assets/svg/ArrowBack.svg'
@@ -12,11 +12,17 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import Button from '../../components/Button'
 import { Strings } from '../../core/String'
 import TimeLineComponent from '../../components/TimeLineComponent'
+import PickerComponent from '../../components/PickerComponent'
 
 
 const MeetingRoomSelectedScreen = (props) => {
     const title = props.route.params.data.title
     const image = props.route.params.data.img
+    var dataRecurring = ['Yes', 'No']
+    var dataRecurringFor = ['Every Day', 'Every Week', 'Every Month', 'Every Year', 'Custom']
+
+    const [pickerValue, setPickerValue] = useState("No")
+    const [pickerValueFor, setPickerValueFor] = useState("Every Day")
 
     const navigation = useNavigation()
 
@@ -60,18 +66,22 @@ const MeetingRoomSelectedScreen = (props) => {
                         <View style={{ width: '48%' }}>
                             <Text style={styles.timePickerText}>Recurring</Text>
                             <View style={styles.timePicker}>
-                                <TouchableOpacity style={styles.clockSvg}>
-                                    <MaterialIcons name='keyboard-arrow-down' color={'black'} size={normalize(25)} />
-                                </TouchableOpacity>
 
+                                <PickerComponent
+                                    value={pickerValue}
+                                    setValue={setPickerValue}
+                                    items={dataRecurring}
+                                />
                             </View>
                         </View>
                         <View style={{ width: '48%' }}>
                             <Text style={styles.timePickerText}>Recurring for</Text>
                             <View style={styles.timePicker}>
-                                <TouchableOpacity style={styles.clockSvg}>
-                                    <MaterialIcons name='keyboard-arrow-down' color={'black'} size={normalize(25)} />
-                                </TouchableOpacity>
+                                <PickerComponent
+                                    value={pickerValueFor}
+                                    setValue={setPickerValueFor}
+                                    items={dataRecurringFor}
+                                />
                             </View>
                         </View>
                     </View>

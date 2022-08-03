@@ -2,84 +2,29 @@ import { FlatList, ScrollView, Text, TouchableOpacity, View, Image } from 'react
 import React, { useState } from 'react'
 import styles from './MeetingRoomScreenStyle'
 import Header from '../../components/Header'
-import Calendar from '../../assets/svg/Calendar.svg'
-import Clock from '../../assets/svg/Clock.svg'
-import DateTimePicker from '@react-native-community/datetimepicker';
-import moment from 'moment';
 import normalize from 'react-native-normalize'
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import Feather from 'react-native-vector-icons/Feather'
 import BookingProgresSteps from '../../components/BookingProgresSteps'
 import { useNavigation } from '@react-navigation/native'
 import { ScreensName } from '../../core/String'
 import CalenderComponent from '../../components/CalenderComponent'
 import TimePickerComponent from '../../components/TimePickerComponent'
+import PickerComponent from '../../components/PickerComponent'
 
 
-const MeetingRoomScreen = (props) => {
+const MeetingRoomScreen = () => {
 
-    // const [date, setDate] = useState(new Date());
-    // const [modeDate, setModeDate] = useState('date');
-    // const [showDate, setShowDate] = useState(false);
-    // const [dateText, setDateText] = useState('');
+    var dataRecurring = ['Yes', 'No']
+    var dataRecurringFor = ['Every Day', 'Every Week', 'Every Month', 'Every Year', 'Custom']
 
-    const [time, setTime] = useState(new Date())
-    const [modeTime, setModeTime] = useState('onTime')
-    const [showTime, setShowTime] = useState(false)
-    const [timeText, setTimeText] = useState('');
-
-    const [timeEnd, setTimeEnd] = useState(new Date())
-    const [modeTimeEnd, setModeTimeEnd] = useState('endTime')
-    const [showTimeEnd, setShowTimeEnd] = useState(false)
-    const [timeTextEnd, setTimeTextEnd] = useState('');
+    const [pickerValue, setPickerValue] = useState("No")
+    const [pickerValueFor, setPickerValueFor] = useState("Every Day")
 
     const navigation = useNavigation()
 
     const goToNextPage = (page, data) => {
         navigation.navigate(page, data)
     }
-
-
-    // const onChangeDate = (event, selectedDate) => {
-    //     const currentDate = selectedDate || date;
-    //     setShowDate(false);
-    //     setDate(currentDate);
-    //     let tempDate = new Date(currentDate);
-    //     let month = moment(tempDate).format('DD MMMM YYYY');
-    //     setDateText(month)
-    // }
-
-    const onChangeOnTime = (event, selectedTime) => {
-        const currentTime = selectedTime || time;
-        setShowTime(false);
-        setTime(currentTime);
-        let tempDate = new Date(currentTime);
-        let startTime = moment(tempDate).format('h:mm a');
-        setTimeText(startTime)
-
-    }
-    const onChangeEndTime = (event, selectedTime) => {
-        const currentTime = selectedTime || time;
-        setShowTimeEnd(false);
-        setTimeEnd(currentTime);
-        let tempDate = new Date(currentTime);
-        let EndTime = moment(tempDate).format('h:mm a');
-        setTimeTextEnd(EndTime)
-
-    }
-
-    // const showDateMode = (currentMode) => {
-    //     setShowDate(true);
-    //     setModeDate(currentMode);
-    // };
-    const showTimeStartMode = (currentMode) => {
-        setShowTime(true);
-        setModeTime(currentMode);
-    };
-    const showTimeEndMode = (currentMode) => {
-        setShowTimeEnd(true);
-        setModeTimeEnd(currentMode);
-    };
 
     const arr = [
         {
@@ -117,19 +62,39 @@ const MeetingRoomScreen = (props) => {
                         <View style={{ width: '48%' }}>
                             <Text style={styles.timePickerText}>Recurring</Text>
                             <View style={styles.timePicker}>
-                                <TouchableOpacity style={styles.clockSvg}>
-                                    <MaterialIcons name='keyboard-arrow-down' color={'black'} size={normalize(25)} />
-                                </TouchableOpacity>
-
+                                <PickerComponent
+                                    value={pickerValue}
+                                    setValue={setPickerValue}
+                                    items={dataRecurring}
+                                />
                             </View>
                         </View>
                         <View style={{ width: '48%' }}>
-                            <Text style={styles.timePickerText}>Recurring for</Text>
-                            <View style={styles.timePicker}>
-                                <TouchableOpacity style={styles.clockSvg}>
-                                    <MaterialIcons name='keyboard-arrow-down' color={'black'} size={normalize(25)} />
-                                </TouchableOpacity>
-                            </View>
+                            {
+                                pickerValue == 'No' ?
+                                    <>
+                                        <Text style={[styles.timePickerText, { color: 'black' }]}>Recurring for</Text>
+                                        <View style={[styles.timePicker, { backgroundColor: '#d6d7dc' }]}>
+                                            <PickerComponent
+                                                disabled={true}
+                                                value={pickerValueFor}
+                                                setValue={setPickerValueFor}
+                                                items={dataRecurringFor}
+                                            />
+                                        </View>
+                                    </>
+                                    :
+                                    <>
+                                        <Text style={styles.timePickerText}>Recurring for</Text>
+                                        <View style={styles.timePicker}>
+                                            <PickerComponent
+                                                value={pickerValueFor}
+                                                setValue={setPickerValueFor}
+                                                items={dataRecurringFor}
+                                            />
+                                        </View>
+                                    </>
+                            }
                         </View>
                     </View>
                     <Text style={styles.meetingText}>Select a meeting room</Text>
@@ -145,9 +110,6 @@ const MeetingRoomScreen = (props) => {
                                                 goToNextPage(ScreensName.MeetingRoomSelectedScreen, {
                                                     data: item
                                                 })
-                                                // navigation.navigate(ScreensName.MeetingRoomSelectedScreen, {
-                                                //     data: item
-                                                // })
                                             }}
                                             style={styles.imgContainer}>
                                             <Image source={item.img} style={{ borderRadius: 15, width: '100%' }} />
