@@ -11,13 +11,19 @@ import Monetization from '../../assets/svg/Monetization_on.svg'
 import normalize from 'react-native-normalize'
 import { Images } from '../../core/Images'
 import Button from '../../components/Button'
-import { Strings } from '../../core/String'
+import { ScreensName, Strings } from '../../core/String'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { theme } from '../../core/theme'
+import { useNavigation } from '@react-navigation/native'
 
 const HomeScreen = () => {
     const [modalVisible, setModalVisible] = useState(true);
+    const navigation = useNavigation()
+
+    const goToNextPage = (page) => {
+        navigation.navigate(page)
+    }
 
 
     return (
@@ -77,6 +83,7 @@ const HomeScreen = () => {
                                 <View style={styles.meetingBtnContainer}>
                                     <Text style={styles.meetingPriceText}>SAR 80<Text style={styles.meetingHrText}>/hr</Text></Text>
                                     <Button
+                                        onPress={() => goToNextPage(ScreensName.MeetingRoomScreen)}
                                         style={styles.btn}
                                         labelStyle={styles.buttonText}
                                     >{Strings.BookNow}</Button>

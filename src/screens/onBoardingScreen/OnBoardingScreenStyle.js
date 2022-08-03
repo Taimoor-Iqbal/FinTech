@@ -35,7 +35,7 @@ export default StyleSheet.create({
     },
     subButtonText: {
         color: '#30b890',
-        fontSize: normalize(8),
-        fontFamily: FontFamilyName.MontserratMedium
+        fontSize: normalize(10),
+        // fontFamily: FontFamilyName.MontserratMedium
     }
 });

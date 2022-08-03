@@ -7,7 +7,8 @@ export const Strings = {
     BookNow: 'Book Now',
     RequestNow: 'Request Now',
     CompleteBooking: 'Complete Booking',
-    Skip: 'Skip'
+    Skip: 'Skip',
+    ProceedToAddingMembers: 'Proceed to adding members'
 
 }
 
@@ -17,7 +18,9 @@ export const ScreensName = {
     AuthScreen: 'AuthScreen',
     NewPassword: 'Set Up New Password',
     HomeScreen: 'Home',
-    SplashScreen: 'Splash'
+    SplashScreen: 'Splash',
+    MeetingRoomScreen: 'Meeting Room',
+    MeetingRoomSelectedScreen: 'Meeting Room Selected',
 
 }
 
