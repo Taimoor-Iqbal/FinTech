@@ -7,7 +7,7 @@ import moment from 'moment';
 import Clock from '../assets/svg/Clock.svg'
 
 
-const TimePickerComponent = () => {
+const TimePickerComponent = ({ }) => {
 
     const [time, setTime] = useState(new Date())
     const [modeTime, setModeTime] = useState('onTime')

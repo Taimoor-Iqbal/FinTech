@@ -4,12 +4,12 @@ import { Picker } from '@react-native-picker/picker';
 import { theme } from '../core/theme';
 import normalize from 'react-native-normalize';
 
-const PickerComponent = ({ setValue, value, items }) => {
+const PickerComponent = ({ setValue, value, items, ...props }) => {
     const pickerData = (data) => {
         return (data?.length > 0) && (
-            data.map((val, index) => <Picker.item
-                style={val == value ? styles.activeText : styles.inActiveText}
-                label={val} value={val} key={index} />)
+            data.map((item, index) => <Picker.item
+                style={item == value ? styles.activeText : styles.inActiveText}
+                label={item} value={item} key={index} />)
         )
     }
     return (
@@ -19,6 +19,8 @@ const PickerComponent = ({ setValue, value, items }) => {
                 setValue(itemValue)
             }
             style={styles.pickerStyle}
+            // enabled={false}
+            {...props}
         >
             {pickerData(items)}
         </Picker>

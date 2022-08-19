@@ -8,7 +8,9 @@ export const Strings = {
     RequestNow: 'Request Now',
     CompleteBooking: 'Complete Booking',
     Skip: 'Skip',
-    ProceedToAddingMembers: 'Proceed to adding members'
+    ProceedToAddingMembers: 'Proceed to adding members',
+    Confirmteammates: 'Confirm teammates',
+    ConfirmSelections: 'Confirm Selections'
 
 }
 
@@ -21,6 +23,8 @@ export const ScreensName = {
     SplashScreen: 'Splash',
     MeetingRoomScreen: 'Meeting Room',
     MeetingRoomSelectedScreen: 'Meeting Room Selected',
+    AddParticipantScreen: "Add Participant",
+    SummaryScreen: 'Summary'
 
 }
 

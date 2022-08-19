@@ -10,6 +10,7 @@ import { ScreensName } from '../../core/String'
 import CalenderComponent from '../../components/CalenderComponent'
 import TimePickerComponent from '../../components/TimePickerComponent'
 import PickerComponent from '../../components/PickerComponent'
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 
 const MeetingRoomScreen = () => {
@@ -82,12 +83,20 @@ const MeetingRoomScreen = () => {
                                                 items={dataRecurringFor}
                                             />
                                         </View>
+                                        <View style={[styles.timePicker, { backgroundColor: '#f6f6f6', position: 'absolute', top: 17 }]}>
+                                            <Text style={[styles.timePickerText, { color: '#b3b3b3', position: 'absolute', top: -25 }]}>Recurring for</Text>
+                                            <View style={styles.disabledPicker}>
+                                                <Text style={{ color: '#b3b3b3' }}>Every Day</Text>
+                                                <MaterialIcons name="arrow-drop-down" size={23} color="#b3b3b3" />
+                                            </View>
+                                        </View>
                                     </>
                                     :
                                     <>
                                         <Text style={styles.timePickerText}>Recurring for</Text>
                                         <View style={styles.timePicker}>
                                             <PickerComponent
+                                                enabled={true}
                                                 value={pickerValueFor}
                                                 setValue={setPickerValueFor}
                                                 items={dataRecurringFor}
@@ -99,7 +108,31 @@ const MeetingRoomScreen = () => {
                     </View>
                     <Text style={styles.meetingText}>Select a meeting room</Text>
                     <View style={{ width: "100%" }}>
-                        <FlatList
+                        {
+                            arr.map((item, index) => {
+                                return (
+                                    <View style={styles.flatListScreen}>
+                                        <TouchableOpacity
+                                            onPress={() => {
+                                                goToNextPage(ScreensName.MeetingRoomSelectedScreen, {
+                                                    data: item
+                                                })
+                                            }}
+                                            style={styles.imgContainer}>
+                                            <Image source={item.img} style={{ borderRadius: 15, width: '100%' }} />
+                                        </TouchableOpacity>
+                                        <View style={styles.titleConainer}>
+                                            <Text style={styles.titleText}>{item.title}</Text>
+                                            <View style={styles.iconContainer}>
+                                                <Feather name='users' color={'black'} size={normalize(20)} />
+                                                <Text style={{ fontSize: normalize(20), color: 'black' }}> X8</Text>
+                                            </View>
+                                        </View>
+                                    </View>
+                                )
+                            })
+                        }
+                        {/* <FlatList
                             data={arr}
                             keyExtractor={(item, index) => index.toString()}
                             renderItem={({ item, index }) => {
@@ -124,7 +157,7 @@ const MeetingRoomScreen = () => {
                                     </View>
                                 )
                             }}
-                        />
+                        /> */}
                     </View>
                 </View >
             </ScrollView>

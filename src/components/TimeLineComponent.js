@@ -615,7 +615,7 @@ const TimeLineComponent = () => {
                                     <Text style={{}}>{time}</Text>
                                 </View> */}
                                 <View style={{ backgroundColor: v.color ? '#d6d7dc' : 'white', borderColor: v.color ? 'red' : 'white', padding: 8, marginTop: 10 }}>
-                                    <View style={{ width: 8, borderRadius: 12, height: 17, backgroundColor: v.isAvailableForBooking ? '#4BE173' : '#FF6B6B' }}>
+                                    <View style={{ width: 8, borderRadius: 12, height: 17, backgroundColor: v.isAvailableForBooking ? '#30B991' : 'rgba(0, 0, 0, 0.15)' }}>
                                     </View>
                                 </View>
                                 {

@@ -53,6 +53,12 @@ export default StyleSheet.create({
         color: 'black',
         fontFamily: FontFamilyName.MontserratBold,
     },
+    disabledPicker: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingHorizontal: 10
+    },
     clockSvg: {
         position: 'absolute',
         top: 20,

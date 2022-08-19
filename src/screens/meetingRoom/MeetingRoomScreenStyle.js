@@ -64,6 +64,12 @@ export default StyleSheet.create({
         justifyContent: 'center',
         // paddingHorizontal: normalize(10)
     },
+    disabledPicker: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingHorizontal: 10
+    },
     timePickerText: {
         fontSize: normalize(15),
         color: 'black',
@@ -100,7 +106,8 @@ export default StyleSheet.create({
         width: '20%',
         height: normalize(30),
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'space-between',
+        paddingHorizontal: normalize(10),
         borderRadius: 8
 
     }

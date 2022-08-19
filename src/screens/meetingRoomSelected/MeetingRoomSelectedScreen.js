@@ -10,7 +10,7 @@ import CalenderComponent from '../../components/CalenderComponent'
 import TimePickerComponent from '../../components/TimePickerComponent'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import Button from '../../components/Button'
-import { Strings } from '../../core/String'
+import { ScreensName, Strings } from '../../core/String'
 import TimeLineComponent from '../../components/TimeLineComponent'
 import PickerComponent from '../../components/PickerComponent'
 
@@ -26,7 +26,9 @@ const MeetingRoomSelectedScreen = (props) => {
 
     const navigation = useNavigation()
 
-    console.log('Data is ====>', title)
+    const goToNextPage = (page) => {
+        navigation.navigate(page)
+    }
     return (
         <View style={styles.container}>
             <Header />
@@ -75,20 +77,45 @@ const MeetingRoomSelectedScreen = (props) => {
                             </View>
                         </View>
                         <View style={{ width: '48%' }}>
-                            <Text style={styles.timePickerText}>Recurring for</Text>
-                            <View style={styles.timePicker}>
-                                <PickerComponent
-                                    value={pickerValueFor}
-                                    setValue={setPickerValueFor}
-                                    items={dataRecurringFor}
-                                />
-                            </View>
+                            {
+                                pickerValue == 'No' ?
+                                    <>
+                                        <Text style={[styles.timePickerText, { color: 'black' }]}>Recurring for</Text>
+                                        <View style={[styles.timePicker, { backgroundColor: '#d6d7dc' }]}>
+                                            <PickerComponent
+                                                disabled={true}
+                                                value={pickerValueFor}
+                                                setValue={setPickerValueFor}
+                                                items={dataRecurringFor}
+                                            />
+                                        </View>
+                                        <View style={[styles.timePicker, { backgroundColor: '#f6f6f6', position: 'absolute', top: 17 }]}>
+                                            <Text style={[styles.timePickerText, { color: '#b3b3b3', position: 'absolute', top: -25 }]}>Recurring for</Text>
+                                            <View style={styles.disabledPicker}>
+                                                <Text style={{ color: '#b3b3b3' }}>Every Day</Text>
+                                                <MaterialIcons name="arrow-drop-down" size={23} color="#b3b3b3" />
+                                            </View>
+                                        </View>
+                                    </>
+                                    :
+                                    <>
+                                        <Text style={styles.timePickerText}>Recurring for</Text>
+                                        <View style={styles.timePicker}>
+                                            <PickerComponent
+                                                value={pickerValueFor}
+                                                setValue={setPickerValueFor}
+                                                items={dataRecurringFor}
+                                            />
+                                        </View>
+                                    </>
+                            }
                         </View>
                     </View>
                 </View>
             </ScrollView>
             <View style={styles.footer}>
                 <Button
+                    onPress={() => goToNextPage(ScreensName.AddParticipantScreen)}
                     labelStyle={styles.buttonText}
                     mode='contained'
                 >{Strings.ProceedToAddingMembers}</Button>
